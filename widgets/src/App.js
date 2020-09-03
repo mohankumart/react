@@ -4,6 +4,8 @@ import Accordion from './components/Accordion';
 import Dropdown from './components/Dropdown';
 import Search from './components/Search';
 import Translate from './components/Translate';
+import Route from './components/Route';
+import Header from './components/Header';
 
 const items = [
     {
@@ -36,7 +38,7 @@ const options = [
 ];
 
 const App = () => {
-    // const [selected, setSelected] = useState(options[0]);
+    const [selected, setSelected] = useState(options[0]);
     // const [showDropdown, setShowDropdown] = useState(true);
     // return (
     //     <div style={{ marginTop: '10px' }}>
@@ -60,7 +62,23 @@ const App = () => {
 
     return (
         <div>
-            <Translate></Translate>
+            <Header></Header>
+            <Route path="/">
+                <Accordion items={items}></Accordion>
+            </Route>
+            <Route path="/list">
+                <Search></Search>
+            </Route>
+            <Route path="/translate">
+                <Translate></Translate>
+            </Route>
+            <Route path="/dropdown">
+                <Dropdown
+                    selected={selected}
+                    onSelectedChange={setSelected}
+                    options={options}
+                ></Dropdown>
+            </Route>
         </div>
     );
 };
