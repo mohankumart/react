@@ -1,7 +1,9 @@
+import './components/Colors.css';
 import React, { useState } from 'react';
 import Accordion from './components/Accordion';
 import Dropdown from './components/Dropdown';
 import Search from './components/Search';
+import Translate from './components/Translate';
 
 const items = [
     {
@@ -34,24 +36,31 @@ const options = [
 ];
 
 const App = () => {
-    const [selected, setSelected] = useState(options[0]);
-    const [showDropdown, setShowDropdown] = useState(true);
+    // const [selected, setSelected] = useState(options[0]);
+    // const [showDropdown, setShowDropdown] = useState(true);
+    // return (
+    //     <div style={{ marginTop: '10px' }}>
+    //         <button
+    //             onClick={() => {
+    //                 setShowDropdown(!showDropdown);
+    //             }}
+    //         >
+    //             Toggle Dropdown
+    //         </button>
+    //         {showDropdown ? (
+    //             <Dropdown
+    //                 selected={selected}
+    //                 onSelectedChange={setSelected}
+    //                 options={options}
+    //             ></Dropdown>
+    //         ) : null}
+    //         <div className={selected.value}>{selected.label}</div>
+    //     </div>
+    // );
+
     return (
-        <div style={{ marginTop: '10px' }}>
-            <button
-                onClick={() => {
-                    setShowDropdown(!showDropdown);
-                }}
-            >
-                Toggle Dropdown
-            </button>
-            {showDropdown ? (
-                <Dropdown
-                    selected={selected}
-                    onSelectedChange={setSelected}
-                    options={options}
-                ></Dropdown>
-            ) : null}
+        <div>
+            <Translate></Translate>
         </div>
     );
 };
